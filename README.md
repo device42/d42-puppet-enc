@@ -41,7 +41,6 @@ classes:
   common:
   example:
     parameters: work
-
 ```
 *Note: do not use --verbose when ENC is actually in use.  Output needs to be __only__ YAML containing the node classification*
 
