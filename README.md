@@ -23,6 +23,40 @@ D42 as a Puppet ENC allows you to manage the classifications of all your Puppet 
       	node_terminus = exec
     '''
 
+## Example:
+Test the output of the ENC.  
+```$ bash enc.sh -n puppet.example.com --verbose
+fetching node classification for: puppet.example.com
+d42 appliance host: 192.168.0.1
+node_classes_field is set to: node_classes
+---
+classes:
+  environment: production
+  listexample:
+  - 0
+  - 1
+  - 2
+  - 3
+  common:
+  example:
+    parameters: work
+
+```
+*Note: do not use --verbose when ENC is actually in use.  Output needs to be __only__ YAML containing the node classification*
+Content of node_classes on device named puppet.example.com on D42:
+```
+{
+  "classes": {
+    "common": null,
+    "example": {
+      "parameters": "work"
+    },
+    "listexample": [0,1,2,3],
+    "environment": "production"
+  }
+}
+```
+
 
 ## Upcoming Features / TODO
 - Blog tutorial
