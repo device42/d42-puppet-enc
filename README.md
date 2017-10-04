@@ -16,7 +16,7 @@ D42 as a Puppet ENC allows you to manage the classifications of all your Puppet 
 - Put your node classification (as JSON) into the "node_classes" custom field on D42. [Writing ENC from Puppetlabs](https://docs.puppet.com/puppet/4.10/nodes_external.html?#enc-output-format)
 - Switch your Puppet Master's configuration to use ENC
 
-ex:
+- ex:
 ``` for Puppetserver version 2.7
   ENC is configured in /etc/puppetlabs/puppet/puppet.conf
   [master]
