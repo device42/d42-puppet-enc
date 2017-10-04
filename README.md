@@ -25,7 +25,8 @@ D42 as a Puppet ENC allows you to manage the classifications of all your Puppet 
 
 ## Example:
 Test the output of the ENC.  
-```$ bash enc.sh -n puppet.example.com --verbose
+```
+$ bash enc.sh -n puppet.example.com --verbose
 fetching node classification for: puppet.example.com
 d42 appliance host: 192.168.0.1
 node_classes_field is set to: node_classes
