@@ -43,6 +43,7 @@ classes:
 
 ```
 *Note: do not use --verbose when ENC is actually in use.  Output needs to be __only__ YAML containing the node classification*
+
 Content of node_classes on device named puppet.example.com on D42:
 ```
 {
