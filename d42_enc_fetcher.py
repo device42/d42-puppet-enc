@@ -24,10 +24,8 @@ verbose = False
 
 CUR_DIR = os.path.dirname(os.path.abspath(__file__))
 
-
 yaml = YAML()
 yaml.default_flow_style = False
-
 
 def printer(msg = None):
     global verbose
@@ -96,7 +94,7 @@ def fetch_node_classification(d42_host, device_name, auth_user, auth_pass, node_
 
 def main():
     global verbose
-    # TODO handle other input args
+
     args = parser.parse_args()
     if args.verbose:
         verbose = True
