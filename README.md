@@ -20,7 +20,7 @@ D42 as a Puppet ENC allows you to manage the classifications of all your Puppet 
 ``` for Puppetserver version 2.7
   ENC is configured in /etc/puppetlabs/puppet/puppet.conf
   [master]
-  	external_nodes = /home/puppetmaster/d42enc/enc.sh
+  	external_nodes = /home/puppetmaster/d42enc/d42_enc_fetcher.py
   	node_terminus = exec
 ```
 
