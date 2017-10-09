@@ -60,5 +60,6 @@ Content of node_classes on device named puppet.example.com on D42:
 
 
 ## Upcoming Features / TODO
-- Make "node_classes" D42 custom field accept raw YAML instead of JSON.
+- Revisit custom field data type. Perhaps use native YAML instead of JSON
 - Testing alongide the standard (Pupppet D42 Integration)[https://github.com/device42/puppet_to_device42_sync_py]
+- Further integration examples. 
