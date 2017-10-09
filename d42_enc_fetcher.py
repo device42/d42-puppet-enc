@@ -27,6 +27,12 @@ CUR_DIR = os.path.dirname(os.path.abspath(__file__))
 yaml = YAML()
 yaml.default_flow_style = False
 
+'''
+input:
+    msg: msg to print
+output:
+    n/a
+'''
 def printer(msg = None):
     global verbose
     if not verbose:
@@ -34,7 +40,12 @@ def printer(msg = None):
     elif verbose == True:
         print "\n%s\n" % (msg)
         return 0
-
+'''
+input:
+    cfgpath:  path to config file
+output:
+    config: config values loaded into a dict for use in main()
+'''
 def get_config(cfgpath):
     if not os.path.exists(cfgpath):
         if not os.path.exists(os.path.join(CUR_DIR, cfgpath)):
@@ -78,6 +89,17 @@ def process_d42_node_enc(d42_node, node_classes_field):
 
     return node_classes_obj
 
+'''
+input:
+    d42_host: ip addres of d42 API
+    device_name: name of device to get node classification for
+    auth_user:  username from settings
+    auth_pass:  pass from settings
+    node_classes_field:  field containing class hierarchy from settings
+    verify_cert:  run with SSL or not
+output:
+    node_classification: contains the data for the node's classification
+'''
 def fetch_node_classification(d42_host, device_name, auth_user, auth_pass, node_classes_field, verify_cert=False):
     method = "GET"
     headers = {}
@@ -91,6 +113,7 @@ def fetch_node_classification(d42_host, device_name, auth_user, auth_pass, node_
     node_classification = process_d42_node_enc(resp, node_classes_field)
 
     return node_classification
+
 
 def main():
     global verbose
