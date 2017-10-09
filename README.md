@@ -1,6 +1,5 @@
 # Device42 as Puppet ENC
 
-
 ## What
 A simple integration that allows you to set up and manage External Node Classification for Puppet using Device42.  
 
@@ -61,6 +60,5 @@ Content of node_classes on device named puppet.example.com on D42:
 
 
 ## Upcoming Features / TODO
-- Blog tutorial
 - Make "node_classes" D42 custom field accept raw YAML instead of JSON.
 - Testing alongide the standard (Pupppet D42 Integration)[https://github.com/device42/puppet_to_device42_sync_py]

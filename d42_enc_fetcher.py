@@ -7,8 +7,6 @@ from ruamel.yaml import YAML
 import warnings
 import logging
 
-# suppress warnings from requests for now.
-# TODO: log them instead
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
