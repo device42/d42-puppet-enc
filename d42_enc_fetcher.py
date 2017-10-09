@@ -17,7 +17,6 @@ parser = argparse.ArgumentParser(description="d42_enc_fetcher")
 # d42 will be queried for --name.
 # the puppet integration sets name of puppet nodes to the name of its ssl cert.
 parser.add_argument("name", help='Name of node to return enc for.')
-# parser.add_argument('-n', '--name', help='Name of node to return enc for.  Should be same as certname.')
 parser.add_argument('-v', '--verbose', help='Prints more information.', action='store_true')
 parser.add_argument('-c', '--config', help='set config location, otherwise', default='settings.yaml')
 
@@ -78,8 +77,6 @@ def process_d42_node_enc(d42_node, node_classes_field):
     # node_classes_yaml = yaml.dump(node_classes_obj, sys.stdout)
 
     #printer(node_classes_yaml) # this is printing NONE
-
-
 
     return node_classes_obj
 

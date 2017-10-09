@@ -1,9 +1,6 @@
 ---
-
-# ========= Device 42
 device42:
-  host: 192.168.0.1 # IP of your D42 appliance 
+  host: 192.168.0.1 # IP of your D42 appliance
   user: d42_username
   pass: d42_password
-  # node_classes_field will set which custom field on d42 contains the node classification for devices
-  node_classes_field: node_classes
+  node_classes_field: node_classes # custom field to look in for device node classification
