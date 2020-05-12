@@ -1,4 +1,2 @@
-PyYAML==3.12
+PyYAML==5.3.1
 requests==2.12.5
-ruamel.ordereddict==0.4.13
-ruamel.yaml==0.15.34
