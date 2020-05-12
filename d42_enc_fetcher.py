@@ -1,9 +1,7 @@
 import os, sys, json, logging
 import argparse
 import requests
-from ruamel import yaml
-from ruamel.yaml import YAML
-
+import yaml
 import warnings
 import logging
 
@@ -22,7 +20,6 @@ verbose = False
 
 CUR_DIR = os.path.dirname(os.path.abspath(__file__))
 
-yaml = YAML()
 yaml.default_flow_style = False
 
 '''
@@ -36,7 +33,7 @@ def printer(msg = None):
     if not verbose:
         return 0
     elif verbose == True:
-        print "\n%s\n" % (msg)
+        print("\n{}\n".format(msg))
         return 0
 '''
 input:
@@ -47,10 +44,10 @@ output:
 def get_config(cfgpath):
     if not os.path.exists(cfgpath):
         if not os.path.exists(os.path.join(CUR_DIR, cfgpath)):
-            raise ValueError("Config file %s is not found!" % cfgpath)
+            raise ValueError("Config file {} is not found!".format(cfgpath))
         cfgpath = os.path.join(CUR_DIR, cfgpath)
     with open(cfgpath, 'r') as cfgf:
-        config = yaml.load(cfgf.read())
+        config = yaml.load(cfgf.read(), Loader=yaml.FullLoader)
     return config
 
 '''
@@ -61,7 +58,7 @@ output:
 this function makes sure that there is only one top level classes key
 '''
 def top_level_classes_reducer(node_classes_obj):
-    if node_classes_obj['classes']['classes']:
+    if 'classes' in node_classes_obj and 'classes' in node_classes_obj['classes'] and node_classes_obj['classes']['classes']:
         node_classes_obj = node_classes_obj['classes']
     return node_classes_obj
 
@@ -73,9 +70,8 @@ output:
     node_classes_yaml: node classes as json
 '''
 def process_d42_node_enc(d42_node, node_classes_field):
-    yaml = YAML()
     yaml.default_flow_style = False
-    printer('node_classes_field is set to: %s' % (node_classes_field))
+    printer('node_classes_field is set to: {}'.format(node_classes_field))
     # printer(json.dumps(d42_node, indent=4, sort_keys=True ))
     node_classes_obj = { "classes": json.loads(node['value'])  for node in d42_node['custom_fields'] if "node_classes" in node['key'] }
     node_classes_obj = top_level_classes_reducer(node_classes_obj)
@@ -101,7 +97,7 @@ output:
 def fetch_node_classification(d42_host, device_name, auth_user, auth_pass, node_classes_field, verify_cert=False):
     method = "GET"
     headers = {}
-    url = "https://%s/api/1.0/devices/name/%s" % (d42_host, device_name)
+    url = "https://{}/api/1.0/devices/name/{}".format(d42_host, device_name)
     response = requests.request(method, url,
                                 auth=(auth_user, auth_pass),
                                 headers=headers, verify=verify_cert
